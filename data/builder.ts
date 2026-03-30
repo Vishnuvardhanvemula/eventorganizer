@@ -4,7 +4,8 @@ export type AddonId =
   | "LightingRig"
   | "DanceFloor"
   | "Balloons"
-  | "LineArrays";
+  | "LineArrays"
+  | "Chandelier";
 
 export interface BuilderModule {
   id: AddonId;
@@ -43,6 +44,14 @@ export const builderModules: BuilderModule[] = [
     priceEstimate: "$1,200+",
   },
   {
+    id: "Chandelier",
+    label: "Kinetic Light Sculpture",
+    category: "Lighting",
+    description: "A suspended architectural chandelier with staggering geometric articulation.",
+    icon: "Lightbulb",
+    priceEstimate: "$2,500+",
+  },
+  {
     id: "DanceFloor",
     label: "Seamless Dance Floor",
     category: "Atmosphere",
@@ -60,9 +69,9 @@ export const builderModules: BuilderModule[] = [
   },
   {
     id: "Balloons",
-    label: "Special Effects",
+    label: "Organic Balloon Garland",
     category: "Atmosphere",
-    description: "Indoor-safe cold sparks, low-lying fog, and bespoke visual effects.",
+    description: "Dense, cascading structural balloons installed dynamically.",
     icon: "Sparkles",
     priceEstimate: "$600+",
   }

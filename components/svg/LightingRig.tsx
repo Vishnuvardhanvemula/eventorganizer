@@ -19,7 +19,7 @@ export function LightingRig({ index }: { index: number }) {
       fill="none"
     >
       {/* Top Truss Beam structure */}
-      <motion.rect variants={draw} x="0" y="10" width="800" height="24" stroke="#C9A84C" strokeWidth="2.5" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="0" y="10" width="800" height="24" stroke="#C9A84C" strokeWidth="2.5" fill="var(--color-bg-primary)" />
       <motion.path variants={draw} d="M0 10 L800 34 M0 34 L800 10" stroke="#C9A84C" strokeWidth="1.5" />
       
       {/* Continuous X-Bracing across the beam */}
@@ -30,14 +30,14 @@ export function LightingRig({ index }: { index: number }) {
       </motion.g>
 
       {/* Vertical Support Legs */}
-      <motion.rect variants={draw} x="0" y="34" width="16" height="250" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="0" y="34" width="16" height="250" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.g variants={draw} stroke="#C9A84C" strokeWidth="1" opacity="0.6">
         {Array.from({ length: 12 }).map((_, i) => (
           <path key={`L${i}`} d={`M0 ${34 + i * 20.8} L16 ${34 + (i + 1) * 20.8} M0 ${34 + (i + 1) * 20.8} L16 ${34 + i * 20.8}`} />
         ))}
       </motion.g>
 
-      <motion.rect variants={draw} x="784" y="34" width="16" height="250" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="784" y="34" width="16" height="250" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.g variants={draw} stroke="#C9A84C" strokeWidth="1" opacity="0.6">
         {Array.from({ length: 12 }).map((_, i) => (
           <path key={`R${i}`} d={`M784 ${34 + i * 20.8} L800 ${34 + (i + 1) * 20.8} M784 ${34 + (i + 1) * 20.8} L800 ${34 + i * 20.8}`} />
@@ -47,9 +47,9 @@ export function LightingRig({ index }: { index: number }) {
       {/* Moving Head Lights */}
       {[100, 250, 400, 550, 700].map((x, i) => (
         <g key={`head-${i}`}>
-          <motion.rect variants={draw} x={x - 12} y="34" width="24" height="15" stroke="#C9A84C" strokeWidth="2" fill="#FFFFFF" />
-          <motion.path variants={draw} d={`M${x - 16} 49 L${x + 16} 49 L${x + 10} 65 L${x - 10} 65 Z`} stroke="#C9A84C" strokeWidth="2.5" fill="#FCFAF5" />
-          <motion.circle variants={draw} cx={x} cy="65" r="8" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" strokeDasharray="2 2" />
+          <motion.rect variants={draw} x={x - 12} y="34" width="24" height="15" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-secondary)" />
+          <motion.path variants={draw} d={`M${x - 16} 49 L${x + 16} 49 L${x + 10} 65 L${x - 10} 65 Z`} stroke="#C9A84C" strokeWidth="2.5" fill="var(--color-bg-primary)" />
+          <motion.circle variants={draw} cx={x} cy="65" r="8" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" strokeDasharray="2 2" />
           
           {/* Animated Sweeping Light Beams */}
           <motion.g

@@ -32,7 +32,7 @@ export function HeroSection({ onCtaClick }: Props) {
           initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: 0.5, ease: [0.6, 0.05, -0.01, 0.9] }}
-          className="font-serif text-5xl md:text-7xl lg:text-8xl text-neutral-900 leading-[1.05] tracking-tight mb-8"
+          className="font-serif text-5xl md:text-7xl lg:text-8xl text-[var(--color-text-primary)] leading-[1.05] tracking-tight mb-8"
         >
           Your night, <br className="hidden md:block" />
           <em className="not-italic text-[var(--color-gold)]">flawless.</em>
@@ -42,7 +42,7 @@ export function HeroSection({ onCtaClick }: Props) {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
-          className="font-sans text-neutral-600 text-lg md:text-xl leading-relaxed max-w-xl mb-12"
+          className="font-sans text-[var(--color-text-muted)] text-lg md:text-xl leading-relaxed max-w-xl mb-12"
         >
           Elegant audio, bespoke lighting, and premium DJs. One seamless team dedicated to your perfect celebration.
         </motion.p>
@@ -73,7 +73,7 @@ export function HeroSection({ onCtaClick }: Props) {
           });
         }}
       >
-        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-neutral-400 font-medium">Discover</span>
+        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium">Discover</span>
         <ChevronDown size={16} className="text-[var(--color-gold)]/60" />
       </motion.div>
       
@@ -85,7 +85,7 @@ export function HeroSection({ onCtaClick }: Props) {
         className="absolute bottom-8 w-full px-12 hidden md:flex items-center justify-between pointer-events-none"
       >
         {["Premium DJs", "Uplighting", "Dance Floors", "Visuals"].map((label) => (
-          <span key={label} className="font-sans text-[11px] tracking-[0.2em] uppercase text-neutral-400 font-medium">
+          <span key={label} className="font-sans text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium">
             {label}
           </span>
         ))}

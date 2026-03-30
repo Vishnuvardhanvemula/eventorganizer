@@ -22,7 +22,7 @@ export function LineArrays({ index }: { index: number }) {
         <g key={`array-${sideIndex}`}>
           {/* Suspension Rigging / Cables holding the arrays */}
           <motion.path variants={draw} d={`M${x - 10} 0 L${x - 10} 80 M${x + 10} 0 L${x + 10} 80`} stroke="#C9A84C" strokeWidth="1.5" strokeDasharray="3 3" />
-          <motion.rect variants={draw} x={x - 20} y="75" width="40" height="10" fill="#FCFAF5" stroke="#C9A84C" strokeWidth="2" />
+          <motion.rect variants={draw} x={x - 20} y="75" width="40" height="10" fill="var(--color-bg-primary)" stroke="#C9A84C" strokeWidth="2" />
           
           {/* Flown Stacked Array Speakers (Hanging downwards) */}
           {[90, 130, 170, 210, 250].map((y, speakerIndex) => {
@@ -47,7 +47,7 @@ export function LineArrays({ index }: { index: number }) {
                   width={width} 
                   height={height} 
                   rx="2" 
-                  fill="#FCFAF5" 
+                  fill="var(--color-bg-primary)" 
                   stroke="#C9A84C" 
                   strokeWidth="2.5" 
                 />

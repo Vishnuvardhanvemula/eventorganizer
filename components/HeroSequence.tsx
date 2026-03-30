@@ -16,7 +16,7 @@ export function HeroSequence({ onSelect, isExiting, selectedEvent }: Props) {
   const keys = Object.keys(events) as EventType[];
 
   return (
-    <div className="fixed inset-0 w-full flex flex-col items-center justify-center p-8 bg-white z-0 pointer-events-none">
+    <div className="fixed inset-0 w-full flex flex-col items-center justify-center p-8 bg-[var(--color-bg-secondary)] z-0 pointer-events-none">
       <div className="pointer-events-auto flex flex-col items-center z-10">
         <AnimatePresence>
           {!isExiting && (
@@ -26,7 +26,7 @@ export function HeroSequence({ onSelect, isExiting, selectedEvent }: Props) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 1.5, ease: [0.6, 0.05, -0.01, 0.9] }}
-              className="font-serif text-2xl md:text-3xl lg:text-4xl text-neutral-800 mb-20 text-center"
+              className="font-serif text-2xl md:text-3xl lg:text-4xl text-[var(--color-text-primary)] mb-20 text-center"
             >
               Every great night starts with one decision.
             </motion.p>
@@ -78,7 +78,7 @@ export function HeroSequence({ onSelect, isExiting, selectedEvent }: Props) {
                       ease: [0.6, 0.05, -0.01, 0.9] 
                     }}
                     onClick={() => onSelect(key)}
-                    className="font-sans text-lg md:text-[22px] uppercase tracking-[0.25em] text-neutral-500 hover:text-neutral-900 transition-colors z-10 relative cursor-pointer"
+                    className="font-sans text-lg md:text-[22px] uppercase tracking-[0.25em] text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors z-10 relative cursor-pointer"
                   >
                     {events[key].label}
                   </motion.button>

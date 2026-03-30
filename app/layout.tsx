@@ -29,13 +29,15 @@ export const viewport: Viewport = {
   themeColor: "#08070A",
 };
 
+import { ThemeProvider } from "../components/ThemeProvider";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={clsx(
           cormorant.variable,
@@ -43,7 +45,9 @@ export default function RootLayout({
           "font-sans antialiased min-h-screen selection:bg-[var(--color-gold)] selection:text-white"
         )}
       >
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

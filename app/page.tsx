@@ -14,6 +14,7 @@ import { EventShowcase } from "../components/landing/EventShowcase";
 import { StatsBar } from "../components/landing/StatsBar";
 import { ServicesSection } from "../components/landing/ServicesSection";
 import { TestimonialsSection } from "../components/landing/TestimonialsSection";
+import { EditorialGallery } from "../components/landing/EditorialGallery";
 import { Footer } from "../components/landing/Footer";
 
 // Data
@@ -44,7 +45,7 @@ export default function Home() {
 
   const handleSelectEvent = (type: EventType) => {
     setSelectedEvent(type);
-    setSelectedAddons(events[type].recommendedAddons);
+    setSelectedAddons(events[type].components as AddonId[]);
     setPhase("BUILDER");
     window.scrollTo(0, 0);
   };
@@ -92,6 +93,7 @@ export default function Home() {
             <StatsBar />
             <ServicesSection />
             <TestimonialsSection />
+            <EditorialGallery />
             <Footer />
           </motion.div>
         )}
@@ -104,7 +106,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
-            className="fixed inset-0 z-50 bg-white"
+            className="fixed inset-0 z-50 bg-[var(--color-bg-secondary)]"
           >
             <StageBuilder 
               initialAddons={selectedAddons}
@@ -122,7 +124,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
-            className="min-h-screen pt-24 pb-20 bg-white flex items-center justify-center relative z-40"
+            className="min-h-screen pt-24 pb-20 bg-[var(--color-bg-secondary)] flex items-center justify-center relative z-40"
           >
             <BookingForm 
               selectedAddons={selectedAddons}

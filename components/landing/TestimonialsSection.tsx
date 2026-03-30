@@ -22,7 +22,7 @@ export function TestimonialsSection() {
   ];
 
   return (
-    <section className="relative w-full py-32 bg-[#FCFAF5] overflow-hidden border-t border-[#C9A84C]/10">
+    <section className="relative w-full pt-32 pb-16 bg-[var(--color-bg-primary)] overflow-hidden border-t border-[#C9A84C]/10">
       <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-[#C9A84C]/5 to-white/0 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -32,7 +32,7 @@ export function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-4xl md:text-5xl lg:text-6xl text-neutral-900 tracking-tight"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-[var(--color-text-primary)] tracking-tight"
           >
             The final review <br className="hidden md:block" />
             is all that matters.
@@ -52,11 +52,11 @@ export function TestimonialsSection() {
               <div className="text-[var(--color-gold)] font-serif text-6xl leading-none absolute top-4 left-6 opacity-30">
                 &ldquo;
               </div>
-              <p className="font-sans text-neutral-700 text-lg leading-relaxed mb-8 flex-1 z-10 pt-4">
+              <p className="font-sans text-[var(--color-text-primary)] text-lg leading-relaxed mb-8 flex-1 z-10 pt-4">
                 &ldquo;{t.quote}&rdquo;
               </p>
-              <div className="flex flex-col border-t border-neutral-200/60 pt-6">
-                <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-neutral-900 font-medium mb-1">
+              <div className="flex flex-col border-t border-[var(--color-border)]/60 pt-6">
+                <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-primary)] font-medium mb-1">
                   {t.author}
                 </span>
                 <span className="font-sans text-[10px] tracking-[0.1em] uppercase text-[var(--color-gold-muted)]">

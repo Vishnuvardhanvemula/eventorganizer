@@ -14,7 +14,7 @@ export function Footer() {
               <span className="font-serif text-4xl text-[var(--color-gold)]">C</span>
               <span className="font-serif text-4xl tracking-widest text-[#FCFAF5]">B</span>
             </div>
-            <p className="font-sans text-neutral-400 text-sm max-w-sm mb-8 leading-loose">
+            <p className="font-sans text-[var(--color-text-muted)] text-sm max-w-sm mb-8 leading-loose">
               Comprehensive event production focusing on bespoke audio, video, tailored lighting, and atmospheric design for unforgettable celebrations.
             </p>
             <div className="flex items-center gap-4 hidden md:flex">
@@ -22,7 +22,7 @@ export function Footer() {
                 <a 
                   key={platform}
                   href="#"
-                  className="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center transition-colors text-xs font-sans text-neutral-400 hover:text-white"
+                  className="w-10 h-10 rounded-full border border-white/20 hover:border-white/50 flex items-center justify-center transition-colors text-xs font-sans text-[var(--color-text-muted)] hover:text-white"
                 >
                   {platform.charAt(0)}
                 </a>
@@ -31,11 +31,11 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="font-sans text-[11px] tracking-[0.25em] uppercase text-neutral-500 mb-6 font-medium">Production</h4>
+            <h4 className="font-sans text-[11px] tracking-[0.25em] uppercase text-[var(--color-text-muted)] mb-6 font-medium">Production</h4>
             <ul className="space-y-4">
               {['Premium Audio', 'LED Video Walls', 'Bespoke Lighting', 'Dance Floors', 'Atmosphere'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="font-sans text-sm text-neutral-400 hover:text-[var(--color-gold)] transition-colors">
+                  <a href="#" className="font-sans text-sm text-[var(--color-text-muted)] hover:text-[var(--color-gold)] transition-colors">
                     {item}
                   </a>
                 </li>
@@ -44,19 +44,19 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans text-[11px] tracking-[0.25em] uppercase text-neutral-500 mb-6 font-medium">Contact</h4>
+            <h4 className="font-sans text-[11px] tracking-[0.25em] uppercase text-[var(--color-text-muted)] mb-6 font-medium">Contact</h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+18005550199" className="font-sans text-sm text-neutral-400 hover:text-[#FCFAF5] transition-colors">
+                <a href="tel:+18005550199" className="font-sans text-sm text-[var(--color-text-muted)] hover:text-[#FCFAF5] transition-colors">
                   (800) 555-0199
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@rcbevents.com" className="font-sans text-sm text-neutral-400 hover:text-[#FCFAF5] transition-colors">
+                <a href="mailto:hello@rcbevents.com" className="font-sans text-sm text-[var(--color-text-muted)] hover:text-[#FCFAF5] transition-colors">
                   hello@rcbevents.com
                 </a>
               </li>
-              <li className="font-sans text-sm text-neutral-500 pt-4">
+              <li className="font-sans text-sm text-[var(--color-text-muted)] pt-4">
                 Available nationwide.
                 <br />Based in Los Angeles.
               </li>
@@ -65,15 +65,15 @@ export function Footer() {
 
         </div>
 
-        <div className="w-full h-px bg-white/10 mb-8" />
+        <div className="w-full h-px bg-[var(--color-bg-secondary)]/10 mb-8" />
 
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="font-sans text-[10px] tracking-[0.1em] uppercase text-neutral-500">
+          <span className="font-sans text-[10px] tracking-[0.1em] uppercase text-[var(--color-text-muted)]">
             © {new Date().getFullYear()} RCB Events & Productions.
           </span>
           <div className="flex items-center gap-6 md:hidden">
             {["Instagram", "Vimeo", "Facebook"].map((social) => (
-              <span key={social} className="font-sans text-[10px] tracking-[0.1em] uppercase text-neutral-500 hover:text-[#FCFAF5] cursor-pointer transition-colors">
+              <span key={social} className="font-sans text-[10px] tracking-[0.1em] uppercase text-[var(--color-text-muted)] hover:text-[#FCFAF5] cursor-pointer transition-colors">
                 {social}
               </span>
             ))}

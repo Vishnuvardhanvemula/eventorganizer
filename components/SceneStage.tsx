@@ -10,7 +10,7 @@ import { LEDScreen } from "./svg/LEDScreen";
 import { LineArrays } from "./svg/LineArrays";
 import { Balloons } from "./svg/Balloons";
 import { FloralArch } from "./svg/FloralArch";
-import { Monogram } from "./svg/Monogram";
+import { Chandelier } from "./svg/Chandelier";
 import { Podium } from "./svg/Podium";
 
 interface Props {
@@ -25,7 +25,7 @@ const svgMap: Record<string, React.FC<{ index: number }>> = {
   LineArrays,
   Balloons,
   FloralArch,
-  Monogram,
+  Chandelier,
   Podium,
 };
 

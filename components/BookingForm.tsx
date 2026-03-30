@@ -41,20 +41,20 @@ export function BookingForm({ selectedAddons, addonLabels, onBack, onSuccessRetu
             {/* Header */}
             <div className="mb-14 flex flex-col items-center text-center">
               <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">Your Proposal</p>
-              <h3 className="font-serif text-4xl md:text-5xl text-neutral-900 mb-4 leading-tight">
+              <h3 className="font-serif text-4xl md:text-5xl text-[var(--color-text-primary)] mb-4 leading-tight">
                 Let's make it official.
               </h3>
-              <p className="font-sans text-neutral-500 text-base leading-loose max-w-md">
+              <p className="font-sans text-[var(--color-text-muted)] text-base leading-loose max-w-md">
                 You've built your stage. We'll take it from here — every detail handled to perfection.
               </p>
             </div>
 
             {/* Package Summary */}
-            <div className="mb-10 p-6 rounded-2xl bg-[#FCFAF5] border border-[#C9A84C]/20">
+            <div className="mb-10 p-6 rounded-2xl bg-[var(--color-bg-primary)] border border-[#C9A84C]/20">
               <p className="font-sans text-xs tracking-[0.25em] uppercase text-[#C9A84C] mb-3">Your Custom Build</p>
               <ul className="space-y-2">
                 {selectedAddons.map((id) => (
-                  <li key={id} className="flex items-center gap-3 font-sans text-sm text-neutral-700">
+                  <li key={id} className="flex items-center gap-3 font-sans text-sm text-[var(--color-text-primary)]">
                     <Check size={14} className="text-[#C9A84C] shrink-0" strokeWidth={2.5} />
                     {addonLabels[id] || id}
                   </li>
@@ -65,67 +65,67 @@ export function BookingForm({ selectedAddons, addonLabels, onBack, onSuccessRetu
             <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="col-span-2 relative group">
-                  <label htmlFor="name" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Full Name</label>
+                  <label htmlFor="name" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Full Name</label>
                   <input 
                     id="name"
                     required
                     type="text" 
                     placeholder="Jane Doe"
-                    className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900 placeholder:text-neutral-300" 
+                    className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]" 
                   />
                 </div>
                 
                 <div className="relative group">
-                  <label htmlFor="email" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Email Address</label>
+                  <label htmlFor="email" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Email Address</label>
                   <input 
                     id="email"
                     required
                     type="email" 
                     placeholder="jane@example.com"
-                    className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900 placeholder:text-neutral-300" 
+                    className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]" 
                   />
                 </div>
                 
                 <div className="relative group">
-                  <label htmlFor="phone" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Phone Number</label>
+                  <label htmlFor="phone" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Phone Number</label>
                   <input 
                     id="phone"
                     required
                     type="tel" 
                     placeholder="(555) 000-0000"
-                    className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900 placeholder:text-neutral-300" 
+                    className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]" 
                   />
                 </div>
                 
                 <div className="relative group">
-                  <label htmlFor="date" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Event Date</label>
+                  <label htmlFor="date" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Event Date</label>
                   <input 
                     id="date"
                     required
                     type="date"
-                    className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900" 
+                    className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)]" 
                   />
                 </div>
                 
                 <div className="relative group">
-                  <label htmlFor="venue" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Venue / Location</label>
+                  <label htmlFor="venue" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Venue / Location</label>
                   <input 
                     id="venue"
                     required
                     type="text" 
                     placeholder="The Grand LA"
-                    className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900 placeholder:text-neutral-300" 
+                    className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)]" 
                   />
                 </div>
               </div>
 
               <div className="relative group">
-                <label htmlFor="notes" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-neutral-400 group-focus-within:text-[#C9A84C] transition-colors bg-white px-1">Special Requests</label>
+                <label htmlFor="notes" className="absolute -top-3 left-0 text-[10px] uppercase tracking-widest text-[var(--color-text-muted)] group-focus-within:text-[#C9A84C] transition-colors bg-[var(--color-bg-secondary)] px-1">Special Requests</label>
                 <textarea 
                   id="notes"
                   placeholder="Any specific aesthetic or technical needs?"
                   rows={3}
-                  className="w-full bg-transparent border-b border-neutral-200 py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-neutral-900 placeholder:text-neutral-300 resize-none mt-2" 
+                  className="w-full bg-transparent border-b border-[var(--color-border)] py-3 px-1 focus:outline-none focus:border-[#C9A84C] transition-colors font-sans text-lg text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] resize-none mt-2" 
                 />
               </div>
 
@@ -134,7 +134,7 @@ export function BookingForm({ selectedAddons, addonLabels, onBack, onSuccessRetu
                   type="button"
                   onClick={onBack}
                   disabled={isSubmitting}
-                  className="shrink-0 font-sans text-xs tracking-[0.2em] uppercase text-neutral-400 hover:text-neutral-700 transition-colors py-5 px-8 border border-neutral-200 rounded disabled:opacity-50"
+                  className="shrink-0 font-sans text-xs tracking-[0.2em] uppercase text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors py-5 px-8 border border-[var(--color-border)] rounded disabled:opacity-50"
                 >
                   ← Edit Stage
                 </button>
@@ -162,23 +162,23 @@ export function BookingForm({ selectedAddons, addonLabels, onBack, onSuccessRetu
             animate={{ opacity: 1, scale: 1 }}
             className="flex flex-col items-center text-center py-12"
           >
-            <div className="w-20 h-20 bg-[#FCFAF5] border border-[#C9A84C]/30 rounded-full flex items-center justify-center mb-8 relative">
+            <div className="w-20 h-20 bg-[var(--color-bg-primary)] border border-[#C9A84C]/30 rounded-full flex items-center justify-center mb-8 relative">
               <div className="absolute inset-0 rounded-full border border-[#C9A84C]/50 animate-ping opacity-20" />
               <Check size={32} className="text-[#C9A84C]" strokeWidth={2} />
             </div>
             
             <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">Received</p>
-            <h3 className="font-serif text-4xl md:text-5xl text-neutral-900 mb-6 tracking-tight">
+            <h3 className="font-serif text-4xl md:text-5xl text-[var(--color-text-primary)] mb-6 tracking-tight">
               Proposal initiated.
             </h3>
             
-            <p className="font-sans text-neutral-500 text-lg leading-loose max-w-sm mb-12">
+            <p className="font-sans text-[var(--color-text-muted)] text-lg leading-loose max-w-sm mb-12">
               Our production design team is reviewing your stage. We will contact you within 24 hours with a custom quote.
             </p>
             
             <button 
               onClick={onSuccessReturn}
-              className="font-sans text-xs tracking-[0.2em] uppercase text-neutral-500 hover:text-[#C9A84C] transition-colors border-b border-transparent hover:border-[#C9A84C] pb-1"
+              className="font-sans text-xs tracking-[0.2em] uppercase text-[var(--color-text-muted)] hover:text-[#C9A84C] transition-colors border-b border-transparent hover:border-[#C9A84C] pb-1"
             >
               Return to Homepage
             </button>

@@ -29,11 +29,11 @@ export function Lounge({ index }: { index: number }) {
       <motion.path 
         variants={draw} 
         d="M 60 140 C 35 140 35 50 150 50 C 265 50 265 140 240 140" 
-        stroke="#FCFAF5" strokeWidth="2" strokeLinecap="round" fill="none" 
+        stroke="var(--color-bg-primary)" strokeWidth="2" strokeLinecap="round" fill="none" 
       />
 
       {/* Seat Cushions */}
-      <motion.path variants={draw} d="M 65 140 C 45 140 50 80 150 80 C 250 80 255 140 235 140 Z" stroke="#C9A84C" strokeWidth="2.5" fill="#FFFFFF" />
+      <motion.path variants={draw} d="M 65 140 C 45 140 50 80 150 80 C 250 80 255 140 235 140 Z" stroke="#C9A84C" strokeWidth="2.5" fill="var(--color-bg-secondary)" />
       <motion.path variants={draw} d="M 120 80 L 110 140 M 180 80 L 190 140" stroke="#C9A84C" strokeWidth="1.5" opacity="0.4" />
       
       {/* Tufting Buttons on Backrest */}
@@ -41,7 +41,7 @@ export function Lounge({ index }: { index: number }) {
         {x: 80, y: 65}, {x: 100, y: 55}, {x: 125, y: 50}, 
         {x: 150, y: 48}, {x: 175, y: 50}, {x: 200, y: 55}, {x: 220, y: 65}
       ].map((pos, i) => (
-        <motion.circle key={i} variants={draw} cx={pos.x} cy={pos.y} r="1.5" fill="#FFFFFF" stroke="#C9A84C" strokeWidth="1" />
+        <motion.circle key={i} variants={draw} cx={pos.x} cy={pos.y} r="1.5" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="1" />
       ))}
 
       {/* Central Coffee Table Base */}
@@ -49,11 +49,11 @@ export function Lounge({ index }: { index: number }) {
       <motion.path variants={draw} d="M 140 115 L 125 135 M 160 115 L 175 135 M 150 115 L 150 135" stroke="#C9A84C" strokeWidth="1.5" opacity="0.5" />
       
       {/* Sleek Metallic Coffee Table Top */}
-      <motion.ellipse variants={draw} cx="150" cy="115" rx="35" ry="12" stroke="#C9A84C" strokeWidth="2.5" fill="#FCFAF5" />
+      <motion.ellipse variants={draw} cx="150" cy="115" rx="35" ry="12" stroke="#C9A84C" strokeWidth="2.5" fill="var(--color-bg-primary)" />
       <motion.ellipse variants={draw} cx="150" cy="115" rx="30" ry="8" stroke="#C9A84C" strokeWidth="1" fill="none" opacity="0.3" />
 
       {/* Decorative Table Centerpiece / Glow */}
-      <motion.circle variants={draw} cx="150" cy="110" r="4" stroke="#C9A84C" strokeWidth="1.5" fill="#FFFFFF" />
+      <motion.circle variants={draw} cx="150" cy="110" r="4" stroke="#C9A84C" strokeWidth="1.5" fill="var(--color-bg-secondary)" />
       <motion.path variants={draw} d="M 150 106 L 150 102" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" />
       <motion.circle 
         initial={{ r: 0, opacity: 0 }}

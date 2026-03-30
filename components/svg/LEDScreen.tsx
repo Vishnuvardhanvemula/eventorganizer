@@ -35,8 +35,8 @@ export function LEDScreen({ index }: { index: number }) {
       </motion.g>
 
       {/* Main Outer Frame/Bezel */}
-      <motion.rect variants={draw} x="0" y="0" width="500" height="250" stroke="#C9A84C" strokeWidth="4" fill="#FFFFFF" rx="2" />
-      <motion.rect variants={draw} x="6" y="6" width="488" height="238" stroke="#FCFAF5" strokeWidth="1.5" fill="none" rx="2" opacity="0.8" />
+      <motion.rect variants={draw} x="0" y="0" width="500" height="250" stroke="#C9A84C" strokeWidth="4" fill="var(--color-bg-secondary)" rx="2" />
+      <motion.rect variants={draw} x="6" y="6" width="488" height="238" stroke="var(--color-bg-primary)" strokeWidth="1.5" fill="none" rx="2" opacity="0.8" />
       
       {/* LED Panel Matrix (Segment Lines) */}
       <motion.g variants={draw} stroke="#C9A84C" strokeWidth="1" opacity="0.2">
@@ -49,7 +49,7 @@ export function LEDScreen({ index }: { index: number }) {
       </motion.g>
 
       {/* Inner Screen Surface */}
-      <motion.rect variants={draw} x="8" y="8" width="484" height="234" fill="#FCFAF5" opacity="0.95" />
+      <motion.rect variants={draw} x="8" y="8" width="484" height="234" fill="var(--color-bg-primary)" opacity="0.95" />
       
       {/* Animated Visuals inside the LED Screen (Sine Wave / Audio Wave) */}
       <motion.path 

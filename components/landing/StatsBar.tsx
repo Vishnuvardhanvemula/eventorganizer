@@ -33,7 +33,7 @@ function CountUp({ end, duration = 2, suffix = "" }: { end: number, duration?: n
 
 export function StatsBar() {
   return (
-    <section className="w-full bg-[#FCFAF5] py-20 border-y border-[#C9A84C]/10">
+    <section className="w-full bg-[var(--color-bg-primary)] py-20 border-y border-[#C9A84C]/10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:divide-x md:divide-[#C9A84C]/10">
           {[
@@ -49,7 +49,7 @@ export function StatsBar() {
               transition={{ duration: 0.8, delay: i * 0.2 }}
               className="flex flex-col items-center justify-center p-4"
             >
-              <h4 className="font-serif text-5xl md:text-6xl text-neutral-900 mb-4 tracking-tighter">
+              <h4 className="font-serif text-5xl md:text-6xl text-[var(--color-text-primary)] mb-4 tracking-tighter">
                 <CountUp end={stat.num} suffix={stat.suffix} />
               </h4>
               <p className="font-sans text-xs tracking-[0.25em] uppercase text-[var(--color-gold-muted)] font-medium">

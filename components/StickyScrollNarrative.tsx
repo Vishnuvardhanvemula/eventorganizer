@@ -35,7 +35,7 @@ export function StickyScrollNarrative({ selectedEvent, onReset }: Props) {
           <div className="absolute top-10 left-10 z-[60] pointer-events-none">
             <motion.h2 
               layoutId={`title-layout-${selectedEvent}`}
-              className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.25em] text-neutral-900 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-neutral-200/50 shadow-sm"
+              className="font-sans text-[11px] md:text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-text-primary)] bg-[var(--color-bg-secondary)]/50 backdrop-blur-sm px-4 py-2 rounded-full border border-[var(--color-border)]/50 shadow-sm"
             >
               {config.label}
             </motion.h2>

@@ -31,7 +31,7 @@ export function DanceFloor({ index }: { index: number }) {
       <motion.path 
         variants={draw} 
         d="M150 0 L650 0 L800 200 L0 200 Z" 
-        fill="#FCFAF5" 
+        fill="var(--color-bg-primary)" 
         stroke="#C9A84C" 
         strokeWidth="3" 
       />
@@ -56,8 +56,8 @@ export function DanceFloor({ index }: { index: number }) {
       {/* Edge Anchor points */}
       <motion.circle variants={draw} cx="150" cy="0" r="4" fill="#C9A84C" />
       <motion.circle variants={draw} cx="650" cy="0" r="4" fill="#C9A84C" />
-      <motion.circle variants={draw} cx="0" cy="200" r="6" fill="#FFFFFF" stroke="#C9A84C" strokeWidth="2" />
-      <motion.circle variants={draw} cx="800" cy="200" r="6" fill="#FFFFFF" stroke="#C9A84C" strokeWidth="2" />
+      <motion.circle variants={draw} cx="0" cy="200" r="6" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="2" />
+      <motion.circle variants={draw} cx="800" cy="200" r="6" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="2" />
       
     </motion.svg>
   );

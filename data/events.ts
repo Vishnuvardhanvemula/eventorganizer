@@ -1,4 +1,4 @@
-export type EventType = "wedding" | "birthday" | "corporate" | "quince";
+export type EventType = "wedding" | "birthday" | "corporate" | "gala";
 
 export interface EventConfig {
   id: EventType;
@@ -59,20 +59,20 @@ export const events: Record<EventType, EventConfig> = {
       subtitle: "Broadcast your keynote flawlessly to an unlimited remote audience with our professional streaming suite.",
     },
   },
-  quince: {
-    id: "quince",
-    label: "Quince",
-    headline: "A Night of Magic",
-    subheadline: "Tradition meets modern, high-energy production.",
-    components: ["DJBooth", "DanceFloor", "LightingRig", "Monogram"],
+  gala: {
+    id: "gala",
+    label: "Gala",
+    headline: "A Night of Elegance",
+    subheadline: "High-end production for monumental occasions.",
+    components: ["DJBooth", "DanceFloor", "LightingRig", "Chandelier"],
     services: [
-      { title: "Bilingual MCs", desc: "Charismatic hosts fluid in both English and Spanish who keep the energy high and the schedule flowing.", icon: "Mic" },
-      { title: "Choreography Lighting", desc: "Programmed theatrical light shows perfectly synched down to the millisecond of the surprise dance.", icon: "Wand2" },
-      { title: "Immersive Sound", desc: "Concert-grade audio systems that fill the room evenly, making the grand entrance unforgettable.", icon: "Speaker" },
+      { title: "Charismatic MCs", desc: "Professional hosts who command the room, keeping the energy high and the schedule flowing flawlessly.", icon: "Mic" },
+      { title: "Theatrical Lighting", desc: "Programmed light shows perfectly synched to highlight honorees, silent auctions, and special reveals.", icon: "Wand2" },
+      { title: "Immersive Sound", desc: "Concert-grade audio systems that fill the room evenly, ensuring every speech and music cue is crystal clear.", icon: "Speaker" },
     ],
     upsell: {
       title: "Add Cold Sparks & Fog",
-      subtitle: "The perfect cinematic addition for the Father-Daughter dance or the Grand Entrance reveal.",
+      subtitle: "The perfect cinematic addition for the grand reveal or headline performance.",
     },
   },
 };

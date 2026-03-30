@@ -19,16 +19,16 @@ export function DJBooth({ index }: { index: number }) {
       fill="none"
     >
       {/* Stereo Speakers */}
-      <motion.rect variants={draw} x="10" y="40" width="30" height="90" rx="2" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="10" y="40" width="30" height="90" rx="2" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.circle variants={draw} cx="25" cy="65" r="8" stroke="#C9A84C" strokeWidth="1.5" />
       <motion.circle variants={draw} cx="25" cy="100" r="12" stroke="#C9A84C" strokeWidth="2" />
       
-      <motion.rect variants={draw} x="260" y="40" width="30" height="90" rx="2" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="260" y="40" width="30" height="90" rx="2" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.circle variants={draw} cx="275" cy="65" r="8" stroke="#C9A84C" strokeWidth="1.5" />
       <motion.circle variants={draw} cx="275" cy="100" r="12" stroke="#C9A84C" strokeWidth="2" />
 
       {/* Main DJ Table structure */}
-      <motion.rect variants={draw} x="50" y="70" width="200" height="60" rx="4" stroke="#C9A84C" strokeWidth="2.5" fill="#FFFFFF" />
+      <motion.rect variants={draw} x="50" y="70" width="200" height="60" rx="4" stroke="#C9A84C" strokeWidth="2.5" fill="var(--color-bg-secondary)" />
       
       {/* Front Panel Indent */}
       <motion.rect variants={draw} x="60" y="80" width="180" height="40" rx="2" stroke="#C9A84C" strokeWidth="1.5" opacity="0.5" fill="none" />
@@ -42,11 +42,11 @@ export function DJBooth({ index }: { index: number }) {
       />
 
       {/* Mixer Console */}
-      <motion.rect variants={draw} x="125" y="55" width="50" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="#FFFFFF" />
+      <motion.rect variants={draw} x="125" y="55" width="50" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-secondary)" />
       <motion.path variants={draw} d="M 135 60 L 135 80 M 150 60 L 150 80 M 165 60 L 165 80" stroke="#C9A84C" strokeWidth="2" />
       
       {/* CDJ Turntables */}
-      <motion.rect variants={draw} x="75" y="55" width="45" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="75" y="55" width="45" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.circle variants={draw} cx="97.5" cy="70" r="10" stroke="#C9A84C" strokeWidth="2" fill="none" />
       <motion.circle 
         initial={{ r: 5, opacity: 0 }}
@@ -55,7 +55,7 @@ export function DJBooth({ index }: { index: number }) {
         cx="97.5" cy="70" fill="#C9A84C" 
       />
 
-      <motion.rect variants={draw} x="180" y="55" width="45" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="#FCFAF5" />
+      <motion.rect variants={draw} x="180" y="55" width="45" height="30" rx="2" stroke="#C9A84C" strokeWidth="2" fill="var(--color-bg-primary)" />
       <motion.circle variants={draw} cx="202.5" cy="70" r="10" stroke="#C9A84C" strokeWidth="2" fill="none" />
       <motion.circle 
         initial={{ r: 5, opacity: 0 }}
