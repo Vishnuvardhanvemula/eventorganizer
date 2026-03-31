@@ -1,143 +1,78 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Components
 import { Navbar } from "../components/Navbar";
-import { StageBuilder } from "../components/StageBuilder";
-import { BookingForm } from "../components/BookingForm";
 
-// Landing Sections
-import { HeroSection } from "../components/landing/HeroSection";
-import { EventShowcase } from "../components/landing/EventShowcase";
+// V2 Narrative Sections
+import { CinematicHero } from "../components/v2/CinematicHero";
+import { ExperiencePillars } from "../components/v2/ExperiencePillars";
+import { ConciergeConsultation } from "../components/v2/ConciergeConsultation";
+
+// V1 Legacy Support Sections (Re-styled inherently via V2 CSS context)
 import { StatsBar } from "../components/landing/StatsBar";
-import { ServicesSection } from "../components/landing/ServicesSection";
-import { TestimonialsSection } from "../components/landing/TestimonialsSection";
+import { ServicesAccordion } from "../components/v2/ServicesAccordion";
+import { CinematicTestimonials } from "../components/v2/CinematicTestimonials";
+import { SpotlightReveal } from "../components/v2/SpotlightReveal";
 import { EditorialGallery } from "../components/landing/EditorialGallery";
 import { Footer } from "../components/landing/Footer";
 
-// Data
-import { EventType, events } from "../data/events";
-import { builderModules, AddonId } from "../data/builder";
-
-type Phase = "LANDING" | "STORY" | "BUILDER" | "PROPOSAL";
-
 export default function Home() {
-  const [phase, setPhase] = useState<Phase>("LANDING");
-  const [selectedEvent, setSelectedEvent] = useState<EventType | "CUSTOM">("CUSTOM");
-  const [selectedAddons, setSelectedAddons] = useState<AddonId[]>(["DJBooth"]);
-
-  // Set phase based on hash in URL
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash === '#builder') {
-        setPhase("BUILDER");
-      }
-    };
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
-
-  // --- Handlers ---
-
-  const handleSelectEvent = (type: EventType) => {
-    setSelectedEvent(type);
-    setSelectedAddons(events[type].components as AddonId[]);
-    setPhase("BUILDER");
-    window.scrollTo(0, 0);
-  };
-
-  const handleBuildFromScratch = () => {
-    setSelectedEvent("CUSTOM");
-    setSelectedAddons(["DJBooth"]);
-    setPhase("BUILDER");
-    window.scrollTo(0, 0);
-  };
-
-  const handleBuilderComplete = (addons: string[]) => {
-    setSelectedAddons(addons as AddonId[]);
-    setPhase("PROPOSAL");
-    window.scrollTo(0, 0);
-  };
-
-  const addonLabels = Object.fromEntries(builderModules.map((m) => [m.id, m.label]));
+  const [isConsulting, setIsConsulting] = useState(false);
 
   return (
-    <main className="min-h-screen relative selection:bg-[var(--color-gold)] selection:text-white bg-[var(--color-dark)] overflow-hidden">
-      {/* Navbar is persistent mostly, hidden only in full builder if desired, but we keep it for BRAND */}
-      {phase !== "BUILDER" && (
-        <Navbar 
-          onBuildClick={handleBuildFromScratch} 
-          isBuilderPhase={phase === "PROPOSAL"}
-        />
-      )}
+    <main className="min-h-[100svh] relative selection:bg-[#F3F3F3] selection:text-[#0A0A0A] bg-[#0A0A0A] overflow-clip">
+      
+      {/* V2 Navigation - Hidden during active consultation */}
+      <AnimatePresence>
+        {!isConsulting && (
+          <motion.div
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            exit={{ y: -100 }}
+            transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
+          >
+            <Navbar 
+              onBuildClick={() => setIsConsulting(true)} 
+              isBuilderPhase={false}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <AnimatePresence mode="wait">
-        
-        {/* --- PHASE 1: FULL LANDING PAGE --- */}
-        {phase === "LANDING" && (
+        {/* --- PHASE 1: IMMERSIVE NARRATIVE SCROLL --- */}
+        <motion.div
+          key="lookbook"
+          className="flex flex-col"
+          animate={{ scale: isConsulting ? 0.95 : 1, filter: isConsulting ? "blur(10px)" : "blur(0px)" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <CinematicHero onCtaClick={() => setIsConsulting(true)} />
+          <ExperiencePillars />
+          <StatsBar />
+          <ServicesAccordion />
+          <CinematicTestimonials />
+          <SpotlightReveal />
+          <EditorialGallery />
+          <Footer />
+        </motion.div>
+
+        {/* --- PHASE 2: CONCIERGE CONSULTATION EXPERIENTIAL FORM --- */}
+        {isConsulting && (
           <motion.div
-            key="landing"
-            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-            className="flex flex-col"
+            key="concierge"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="fixed inset-0 z-50 pointer-events-auto"
           >
-            <HeroSection onCtaClick={handleBuildFromScratch} />
-            <EventShowcase 
-              onSelectEvent={handleSelectEvent} 
-              onFromScratchClick={handleBuildFromScratch} 
-            />
-            <StatsBar />
-            <ServicesSection />
-            <TestimonialsSection />
-            <EditorialGallery />
-            <Footer />
+            <ConciergeConsultation onClose={() => setIsConsulting(false)} />
           </motion.div>
         )}
-
-        {/* --- PHASE 2: BUILDER (StageBuilder takes full screen) --- */}
-        {phase === "BUILDER" && (
-          <motion.div
-            key="builder"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
-            className="fixed inset-0 z-50 bg-[var(--color-bg-secondary)]"
-          >
-            <StageBuilder 
-              initialAddons={selectedAddons}
-              onComplete={handleBuilderComplete} 
-              onBack={() => { setPhase("LANDING"); window.scrollTo(0, 0); }}
-            />
-          </motion.div>
-        )}
-
-        {/* --- PHASE 3: PROPOSAL FORM --- */}
-        {phase === "PROPOSAL" && (
-          <motion.div
-            key="proposal"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: [0.6, 0.05, -0.01, 0.9] }}
-            className="min-h-screen pt-24 pb-20 bg-[var(--color-bg-secondary)] flex items-center justify-center relative z-40"
-          >
-            <BookingForm 
-              selectedAddons={selectedAddons}
-              addonLabels={addonLabels}
-              onBack={() => setPhase("BUILDER")}
-              onSuccessReturn={() => {
-                setPhase("LANDING");
-                window.scrollTo(0, 0);
-              }}
-            />
-          </motion.div>
-        )}
-
       </AnimatePresence>
     </main>
   );
