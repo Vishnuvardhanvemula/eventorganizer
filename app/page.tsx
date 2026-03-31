@@ -57,6 +57,13 @@ export default function Home() {
     window.scrollTo(0, 0);
   };
 
+  const handleScrollToShowcase = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: "smooth"
+    });
+  };
+
   const handleBuilderComplete = (addons: string[]) => {
     setSelectedAddons(addons as AddonId[]);
     setPhase("PROPOSAL");
@@ -85,7 +92,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="flex flex-col"
           >
-            <HeroSection onCtaClick={handleBuildFromScratch} />
+            <HeroSection onCtaClick={handleScrollToShowcase} />
             <EventShowcase 
               onSelectEvent={handleSelectEvent} 
               onFromScratchClick={handleBuildFromScratch} 
