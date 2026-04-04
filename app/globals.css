@@ -84,23 +84,228 @@
   }
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+
+/* ── Stage Builder: GPU-safe CSS animations ──────────────────────────
+   All animations here use ONLY transform + opacity.
+   This ensures they run on the compositor (GPU) thread, NOT the JS main thread.
+   Rules:
+   - Never animate: blur, filter, background, fill, d, width, height
+   - Always animate: transform, opacity
+──────────────────────────────────────────────────────────────────── */
+
+/* Generic opacity pulse — gold LED trim, aperture glows */
+@keyframes stage-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 1; }
+}
+/* Slow pulse for ambient halos */
+@keyframes stage-pulse-slow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(1.08); }
+}
+/* Turntable CW spin */
+@keyframes stage-spin-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* Turntable CCW spin */
+@keyframes stage-spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+/* Scanline sweep — translate Y only */
+@keyframes stage-scan {
+  0%   { transform: translateY(0px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(248px); opacity: 0; }
+}
+/* Balloon float — individual slight offset */
+@keyframes stage-float-a {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50%       { transform: translateY(-7px) rotate(1deg); }
+}
+@keyframes stage-float-b {
+  0%, 100% { transform: translateY(0px) rotate(1deg); }
+  50%       { transform: translateY(-5px) rotate(-1.5deg); }
+}
+@keyframes stage-float-c {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-9px) rotate(2deg); }
+}
+/* Chandelier slow rotate */
+@keyframes stage-rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+/* Crystal shimmer */
+@keyframes stage-shimmer {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+/* Beam sweep LEFT→RIGHT using rotate */
+@keyframes stage-beam-l {
+  0%, 100% { transform: rotate(-18deg); opacity: 0.45; }
+  50%       { transform: rotate(12deg);  opacity: 0.5; }
+}
+@keyframes stage-beam-r {
+  0%, 100% { transform: rotate(18deg);  opacity: 0.45; }
+  50%       { transform: rotate(-12deg); opacity: 0.5; }
+}
+/* Dance floor scan — translate Y */
+@keyframes stage-floor-scan {
+  0%   { transform: translateY(-5px); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.7; }
+  100% { transform: translateY(218px); opacity: 0; }
+}
+/* Glare sweep across floor */
+@keyframes stage-glare {
+  from { transform: translateX(-200px); }
+  to   { transform: translateX(1100px); }
+}
+/* DJ fader motion */
+@keyframes stage-fader-a {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(8px); }
+}
+@keyframes stage-fader-b {
+  0%, 100% { transform: translateY(4px); }
+  50%       { transform: translateY(-4px); }
+}
+/* Sound ripple expand */
+@keyframes stage-ripple {
+  0%   { transform: scale(0.8); opacity: 0; }
+  40%  { opacity: 0.5; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+/* Fog warp — pure translateX, no blur change */
+@keyframes stage-fog-a {
+  0%, 100% { transform: translateX(0px); opacity: 0.3; }
+  50%       { transform: translateX(40px); opacity: 0.7; }
+}
+@keyframes stage-fog-b {
+  0%, 100% { transform: translateX(0px); opacity: 0.2; }
+  50%       { transform: translateX(-30px); opacity: 0.6; }
+}
+/* Aperture glow */
+@keyframes stage-aperture {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+/* Chandelier bob */
+@keyframes stage-bob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(6px); }
+}
+/* LED corner blink */
+@keyframes stage-blink {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 1; }
+}
+/* Sparkle cross */
+@keyframes stage-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+  50%       { opacity: 1; transform: scale(1.2) rotate(45deg); }
 }
 
-@keyframes pulseGold {
-  0% { box-shadow: 0 0 0 0 rgba(201,168,76,0.2); }
-  70% { box-shadow: 0 0 0 10px rgba(201,168,76,0); }
-  100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); }
+/* ── Utility classes ─────────────────────────────────────────────── */
+
+/* Pulse variants */
+.anim-pulse          { animation: stage-pulse 2.5s ease-in-out infinite; }
+.anim-pulse-slow     { animation: stage-pulse-slow 5s ease-in-out infinite; }
+.anim-pulse-d1       { animation: stage-pulse 2.5s ease-in-out infinite 0.4s; }
+.anim-pulse-d2       { animation: stage-pulse 2.5s ease-in-out infinite 0.8s; }
+.anim-pulse-d3       { animation: stage-pulse 2.5s ease-in-out infinite 1.2s; }
+.anim-pulse-d4       { animation: stage-pulse 2.5s ease-in-out infinite 1.6s; }
+
+/* Spin */
+.anim-spin-cw        { animation: stage-spin-cw 4s linear infinite; }
+.anim-spin-ccw       { animation: stage-spin-ccw 4.5s linear infinite; }
+.anim-spin-slow      { animation: stage-rotate-slow 30s linear infinite; }
+
+/* Scan */
+.anim-scan           { animation: stage-scan 8s linear infinite; }
+
+/* Float variants for balloons */
+.anim-float-a        { animation: stage-float-a 5s ease-in-out infinite; }
+.anim-float-b        { animation: stage-float-b 5.8s ease-in-out infinite; }
+.anim-float-c        { animation: stage-float-c 6.5s ease-in-out infinite; }
+.anim-float-a-d      { animation: stage-float-a 5s ease-in-out infinite 0.5s; }
+.anim-float-b-d      { animation: stage-float-b 5.8s ease-in-out infinite 0.7s; }
+
+/* Beam sweep */
+.anim-beam-l         { animation: stage-beam-l 4s ease-in-out infinite; }
+.anim-beam-r         { animation: stage-beam-r 4.5s ease-in-out infinite; }
+.anim-beam-l-d1      { animation: stage-beam-l 4.3s ease-in-out infinite 0.4s; }
+.anim-beam-r-d1      { animation: stage-beam-r 4.8s ease-in-out infinite 0.8s; }
+.anim-beam-l-d2      { animation: stage-beam-l 3.8s ease-in-out infinite 1.2s; }
+
+/* Floor scan */
+.anim-floor-scan     { animation: stage-floor-scan 4s linear infinite; }
+.anim-floor-scan-d1  { animation: stage-floor-scan 4s linear infinite 1.33s; }
+.anim-floor-scan-d2  { animation: stage-floor-scan 4s linear infinite 2.66s; }
+
+/* Glare */
+.anim-glare          { animation: stage-glare 8s ease-in-out infinite; }
+
+/* Faders */
+.anim-fader-a        { animation: stage-fader-a 3s ease-in-out infinite; }
+.anim-fader-b        { animation: stage-fader-b 3.5s ease-in-out infinite 0.5s; }
+.anim-fader-c        { animation: stage-fader-a 4s ease-in-out infinite 1s; }
+.anim-fader-d        { animation: stage-fader-b 2.8s ease-in-out infinite 1.5s; }
+
+/* Ripple */
+.anim-ripple-a       { animation: stage-ripple 3s ease-out infinite; }
+.anim-ripple-b       { animation: stage-ripple 3s ease-out infinite 0.8s; }
+.anim-ripple-c       { animation: stage-ripple 3s ease-out infinite 1.6s; }
+
+/* Fog */
+.anim-fog-a          { animation: stage-fog-a 18s ease-in-out infinite; }
+.anim-fog-b          { animation: stage-fog-b 22s ease-in-out infinite; }
+.anim-fog-c          { animation: stage-fog-a 25s ease-in-out infinite 6s; }
+.anim-fog-d          { animation: stage-fog-b 20s ease-in-out infinite 9s; }
+
+/* Shimmer / aperture */
+.anim-shimmer        { animation: stage-shimmer 2s ease-in-out infinite; }
+.anim-aperture-d0    { animation: stage-aperture 1.5s ease-in-out infinite; }
+.anim-aperture-d1    { animation: stage-aperture 1.5s ease-in-out infinite 0.3s; }
+.anim-aperture-d2    { animation: stage-aperture 1.5s ease-in-out infinite 0.6s; }
+.anim-aperture-d3    { animation: stage-aperture 1.5s ease-in-out infinite 0.9s; }
+.anim-aperture-d4    { animation: stage-aperture 1.5s ease-in-out infinite 1.2s; }
+
+/* Bob / blink / sparkle */
+.anim-bob            { animation: stage-bob 8s ease-in-out infinite; }
+.anim-blink-d0       { animation: stage-blink 2s ease-in-out infinite; }
+.anim-blink-d1       { animation: stage-blink 2s ease-in-out infinite 0.4s; }
+.anim-blink-d2       { animation: stage-blink 2s ease-in-out infinite 0.8s; }
+.anim-blink-d3       { animation: stage-blink 2s ease-in-out infinite 1.2s; }
+.anim-sparkle-a      { animation: stage-sparkle 3s ease-in-out infinite; }
+.anim-sparkle-b      { animation: stage-sparkle 3s ease-in-out infinite 1.8s; }
+.anim-sparkle-c      { animation: stage-sparkle 3.5s ease-in-out infinite 2.2s; }
+.anim-sparkle-d      { animation: stage-sparkle 2.8s ease-in-out infinite 0.8s; }
+
+/* Performance hints — tell browser to pre-promote to its own GPU layer */
+.gpu-promote {
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+/* Reduced motion: respect system preference */
+@media (prefers-reduced-motion: reduce) {
+  .anim-pulse, .anim-pulse-slow, .anim-pulse-d1, .anim-pulse-d2,
+  .anim-pulse-d3, .anim-pulse-d4, .anim-spin-cw, .anim-spin-ccw,
+  .anim-spin-slow, .anim-scan, .anim-float-a, .anim-float-b, .anim-float-c,
+  .anim-float-a-d, .anim-float-b-d, .anim-beam-l, .anim-beam-r,
+  .anim-beam-l-d1, .anim-beam-r-d1, .anim-beam-l-d2, .anim-floor-scan,
+  .anim-floor-scan-d1, .anim-floor-scan-d2, .anim-glare, .anim-fader-a,
+  .anim-fader-b, .anim-fader-c, .anim-fader-d, .anim-ripple-a,
+  .anim-ripple-b, .anim-ripple-c, .anim-fog-a, .anim-fog-b, .anim-fog-c,
+  .anim-fog-d, .anim-shimmer, .anim-aperture-d0, .anim-aperture-d1,
+  .anim-aperture-d2, .anim-aperture-d3, .anim-aperture-d4, .anim-bob,
+  .anim-blink-d0, .anim-blink-d1, .anim-blink-d2, .anim-blink-d3,
+  .anim-sparkle-a, .anim-sparkle-b, .anim-sparkle-c, .anim-sparkle-d {
+    animation: none !important;
+    opacity: 0.8;
+  }
 }
-
-.animate-pulse-gold {
-  animation: pulseGold 2s infinite;
-}
-

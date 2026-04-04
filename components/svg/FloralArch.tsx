@@ -44,25 +44,26 @@ export function FloralArch({ index }: { index: number }) {
 
       {/* Complex Asymmetric Floral Clusters */}
       <motion.g variants={pop} style={{ originX: "60px", originY: "150px" }}>
-        <path d="M60 150 C40 130 80 120 75 160 C70 180 50 170 60 150Z" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="1.5" />
-        <path d="M60 150 C30 160 40 190 70 170 C90 150 60 130 60 150Z" fill="var(--color-bg-primary)" stroke="#C9A84C" strokeWidth="2" />
+        {/* Blush / Pearl Blooms */}
+        <path d="M60 150 C40 130 80 120 75 160 C70 180 50 170 60 150Z" fill="#B76E79" stroke="#C9A84C" strokeWidth="1.5" />
+        <path d="M60 150 C30 160 40 190 70 170 C90 150 60 130 60 150Z" fill="#F8F8F6" stroke="#C9A84C" strokeWidth="2" />
       </motion.g>
 
       <motion.g variants={pop} style={{ originX: "100px", originY: "70px" }}>
         {/* Large Corner Bloom */}
-        <path d="M100 70 C70 40 120 20 125 60 C130 90 80 100 100 70Z" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="2" />
-        <path d="M100 70 C70 90 100 120 130 90 C150 70 110 50 100 70Z" fill="var(--color-bg-primary)" stroke="#C9A84C" strokeWidth="2.5" />
+        <path d="M100 70 C70 40 120 20 125 60 C130 90 80 100 100 70Z" fill="#E5E4E2" stroke="#C9A84C" strokeWidth="2" />
+        <path d="M100 70 C70 90 100 120 130 90 C150 70 110 50 100 70Z" fill="#B76E79" stroke="#C9A84C" strokeWidth="2.5" />
         <path d="M100 70 C80 60 90 40 110 50 C120 60 110 80 100 70Z" fill="none" stroke="#C9A84C" strokeWidth="1.5" />
       </motion.g>
 
       <motion.g variants={pop} style={{ originX: "180px", originY: "50px" }}>
-        <path d="M180 50 C160 30 200 10 210 40 C220 70 170 80 180 50Z" fill="var(--color-bg-primary)" stroke="#C9A84C" strokeWidth="2" />
-        <path d="M180 50 C150 60 180 90 210 70 C230 50 190 30 180 50Z" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="1.5" />
+        <path d="M180 50 C160 30 200 10 210 40 C220 70 170 80 180 50Z" fill="#F8F8F6" stroke="#C9A84C" strokeWidth="2" />
+        <path d="M180 50 C150 60 180 90 210 70 C230 50 190 30 180 50Z" fill="#B76E79" stroke="#C9A84C" strokeWidth="1.5" />
       </motion.g>
 
       <motion.g variants={pop} style={{ originX: "240px", originY: "180px" }}>
-        <path d="M240 180 C210 160 260 140 260 190 C260 220 220 210 240 180Z" fill="var(--color-bg-secondary)" stroke="#C9A84C" strokeWidth="2" />
-        <path d="M240 180 C220 200 250 230 270 200 C290 170 250 160 240 180Z" fill="var(--color-bg-primary)" stroke="#C9A84C" strokeWidth="1.5" />
+        <path d="M240 180 C210 160 260 140 260 190 C260 220 220 210 240 180Z" fill="#E5E4E2" stroke="#C9A84C" strokeWidth="2" />
+        <path d="M240 180 C220 200 250 230 270 200 C290 170 250 160 240 180Z" fill="#B76E79" stroke="#C9A84C" strokeWidth="1.5" />
       </motion.g>
 
       {/* Hanging Amaranthus (Cascading linear florals) */}

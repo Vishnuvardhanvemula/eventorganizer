@@ -24,16 +24,22 @@ const heroSlides = [
   },
 ];
 
+// Pseudo-random generator for consistent server/client hydration
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 // Floating bokeh particles
 function BokehParticles() {
   const particles = Array.from({ length: 20 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 4 + 2,
-    duration: Math.random() * 8 + 10,
-    delay: Math.random() * 5,
-    opacity: Math.random() * 0.3 + 0.05,
+    x: Number((seededRandom(i * 11) * 100).toFixed(2)),
+    y: Number((seededRandom(i * 13) * 100).toFixed(2)),
+    size: Number((seededRandom(i * 17) * 4 + 2).toFixed(2)),
+    duration: Number((seededRandom(i * 19) * 8 + 10).toFixed(2)),
+    delay: Number((seededRandom(i * 23) * 5).toFixed(2)),
+    opacity: Number((seededRandom(i * 29) * 0.3 + 0.05).toFixed(3)),
   }));
 
   return (
@@ -116,7 +122,7 @@ export function HeroSection({ onCtaClick }: Props) {
             fill
             className="object-cover object-center"
             priority={currentSlide === 0}
-            quality={90}
+            quality={75}
             sizes="100vw"
           />
         </motion.div>
@@ -171,10 +177,10 @@ export function HeroSection({ onCtaClick }: Props) {
                 Moments
               </motion.h1>
             </div>
-            <div className="overflow-hidden -mt-3">
+            <div className="-mt-3">
               <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.4, delay: 0.75, ease: [0.6, 0.05, -0.01, 0.9] }}
                 className="font-serif text-[clamp(2.8rem,8vw,7rem)] leading-[0.95] tracking-[-0.02em] text-white/90 italic font-light"
               >

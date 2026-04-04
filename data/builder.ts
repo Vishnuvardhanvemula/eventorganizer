@@ -5,7 +5,9 @@ export type AddonId =
   | "DanceFloor"
   | "Balloons"
   | "LineArrays"
-  | "Chandelier";
+  | "Chandelier"
+  | "FloralArch"
+  | "Podium";
 
 export interface BuilderModule {
   id: AddonId;
@@ -74,5 +76,21 @@ export const builderModules: BuilderModule[] = [
     description: "Dense, cascading structural balloons installed dynamically.",
     icon: "Sparkles",
     priceEstimate: "$600+",
-  }
+  },
+  {
+    id: "FloralArch",
+    label: "Floral Arch Installation",
+    category: "Atmosphere",
+    description: "A lush, architectural floral arch framing the main stage entrance.",
+    icon: "Flower2",
+    priceEstimate: "$900+",
+  },
+  {
+    id: "Podium",
+    label: "Speaker Podium",
+    category: "Atmosphere",
+    description: "An elegant branded lectern for toasts, speeches, and presentations.",
+    icon: "Mic2",
+    priceEstimate: "$350+",
+  },
 ];
