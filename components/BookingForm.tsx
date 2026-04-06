@@ -42,10 +42,10 @@ export function BookingForm({ selectedAddons, addonLabels, onBack, onSuccessRetu
             <div className="mb-14 flex flex-col items-center text-center">
               <p className="font-sans text-xs tracking-[0.3em] uppercase text-[#C9A84C] mb-4">Your Proposal</p>
               <h3 className="font-serif text-4xl md:text-5xl text-[var(--color-text-primary)] mb-4 leading-tight">
-                Let's make it official.
+                Let&apos;s make it official.
               </h3>
               <p className="font-sans text-[var(--color-text-muted)] text-base leading-loose max-w-md">
-                You've built your stage. We'll take it from here — every detail handled to perfection.
+                You&apos;ve built your stage. We&apos;ll take it from here — every detail handled to perfection.
               </p>
             </div>
 

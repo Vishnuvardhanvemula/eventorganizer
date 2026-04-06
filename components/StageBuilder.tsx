@@ -50,8 +50,8 @@ export function StageBuilder({ onComplete, onBack, initialAddons = ["DJBooth"] }
   const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false);
 
   const toggle = (id: AddonId) => {
-    const module = builderModules.find((m) => m.id === id);
-    if (module?.isCore) return;
+    const stageModule = builderModules.find((m) => m.id === id);
+    if (stageModule?.isCore) return;
 
     setActiveAddons((prev) => {
       const next = prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id];

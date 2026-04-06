@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 
 // ─── Luxury Dance Floor ────────────────────────────────────────────────────
@@ -40,7 +41,7 @@ export function DanceFloor({ index }: { index: number }) {
     }
   }
 
-  const planks: JSX.Element[] = [];
+  const planks: React.ReactNode[] = [];
   for (let row = 0; row < 21; row++) {
     for (let col = 0; col < 32; col++) {
       const bx = col * (plankW + 1) - 20;
